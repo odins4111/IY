@@ -2179,7 +2179,7 @@ vars.put(&quot;tempKey_1816&quot;, UUID.randomUUID().toString());</stringProp>
       }&#xd;
     ],&#xd;
     &quot;primitiveEntityInfoId&quot;: 1814,&#xd;
-    &quot;entityId&quot;: ${__eval(${mainEntityId})},&#xd;
+    &quot;entityId&quot;: ${mainEntityId},&#xd;
     &quot;code&quot;: &quot;${code}&quot;,&#xd;
     &quot;title&quot;: null,&#xd;
     &quot;oneToOneChildEntityList&quot;: {&#xd;
@@ -2367,9 +2367,7 @@ String[] numKeys = {&quot;mainEntityId&quot;, &quot;itemVersionId&quot;, &quot;e
 for (int i = 0; i &lt; numKeys.length; i++) {
     String v = vars.get(numKeys[i]);
     if (v == null || v.equals(&quot;&quot;) || v.equals(&quot;NOT_FOUND&quot;)) {
-        // Генерируем случайное число вместо &quot;0&quot;
-        long randomId = System.currentTimeMillis() + (long)(Math.random() * 10000);
-        vars.put(numKeys[i], String.valueOf(randomId));
+        vars.put(numKeys[i], &quot;0&quot;);
     }
 }
 
